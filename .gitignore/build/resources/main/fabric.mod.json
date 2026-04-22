@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "goldenamethyst",
+  "version": "1.0.0",
+  "name": "Golden Amethyst Mod",
+  "description": "Adds the Golden Amethyst item with Kinetic Blink, Treasure Sense, and Stasis Strike.",
+  "authors": ["YourName"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.example.goldenamethyst.GoldenAmethystMod"]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api":   "*",
+    "minecraft":    "~1.21"
+  }
+}

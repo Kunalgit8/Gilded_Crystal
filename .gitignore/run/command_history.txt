@@ -1,0 +1,8 @@
+/give @p goldenamethyst:golden_amethyst 16
+/give Player762 minecraft:gold_nugget 64
+/give Player762 minecraft:amethyst_shard 64
+/summon minecraft:iron_golem
+/time set night
+/summon minecraft:zombie
+/give Player386 minecraft:amethyst_shard 1
+/give Player386 minecraft:gold_nugget 8

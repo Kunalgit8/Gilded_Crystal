@@ -1,0 +1,18 @@
+{
+  "projectPath": ":",
+  "classpaths": {
+    "test": [
+      "C:\\GoldenAmethystMod\\build\\classes\\java\\test",
+      "C:\\GoldenAmethystMod\\build\\resources\\test",
+      "C:\\GoldenAmethystMod\\out\\test\\classes",
+      "C:\\GoldenAmethystMod\\out\\test\\resources"
+    ],
+    "main": [
+      "C:\\GoldenAmethystMod\\build\\classes\\java\\main",
+      "C:\\GoldenAmethystMod\\build\\resources\\main",
+      "C:\\GoldenAmethystMod\\build\\devlibs\\GoldenAmethystMod-1.0.0-dev.jar",
+      "C:\\GoldenAmethystMod\\out\\production\\classes",
+      "C:\\GoldenAmethystMod\\out\\production\\resources"
+    ]
+  }
+}

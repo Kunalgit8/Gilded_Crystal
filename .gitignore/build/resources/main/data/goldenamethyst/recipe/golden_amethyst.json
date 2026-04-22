@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GAG",
+    "GGG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_nugget" },
+    "A": { "item": "minecraft:amethyst_shard" }
+  },
+  "result": {
+    "id": "goldenamethyst:golden_amethyst",
+    "count": 1
+  }
+}
