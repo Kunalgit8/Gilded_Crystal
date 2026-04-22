@@ -10,6 +10,7 @@ Stacks up to 16!
 
 2) **Treasure Sense**: Right-click any block to scan a 10 block radius for nearby Chests and Barrels. Particles will trail toward any containers found. Has a 10 second cooldown.
 <img width="809" height="388" alt="image" src="https://github.com/user-attachments/assets/721c67cc-e7d2-4666-880d-6d4f6e297537" />
+
 3) **Stasis Strike**: Left-click any mob while holding the Golden Amethyst to apply Slowness X and Weakness X for 4 seconds, freezing them in place. Consumes 1 item.
 
 ### Requirements:
