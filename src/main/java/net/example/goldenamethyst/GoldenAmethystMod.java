@@ -396,7 +396,7 @@ public class GoldenAmethystMod implements ModInitializer {
                     activeDomes.put(uid, domeBlocks);
                     domainTicks.put(uid, 0);
                     world.spawnParticles(ParticleTypes.DRAGON_BREATH, player.getX(), player.getY() + 1, player.getZ(), 100, 5, 5, 5, 0.2);
-                    player.sendMessage(Text.literal("§5§lDomain Expansion: Void Realm!"), true);
+                    player.sendMessage(Text.literal("§5§lEntered the Void Realm"), true);
                 }
         );
     }
