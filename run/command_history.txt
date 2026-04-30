@@ -1,0 +1,50 @@
+/execute in minecraft:overworld run setblock -3 126 0 minecraft:end_portal
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 107 0
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 100 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 70 0
+/execute in minecraft:the_end run fill -100 -100 -100 100 100 100 air replace minecraft:dragon_egg
+/execute in minecraft:the_end run fill -5 60 -5 5 70 5 air replace minecraft:dragon_egg
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/give @p goldenamethyst:void_crystal 16
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/give @s goldenamethyst:golden_amethyst 16
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/give @s goldenamethyst:golden_amethyst 16
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/give @s goldenamethyst:golden_amethyst 16
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/give @s goldenamethyst:golden_amethyst 16
+/execute in minecraft:the_end run teleport @s 0 70 0
+/kill @e[type=minecraft:ender_dragon]
+/execute in minecraft:the_end run teleport @s 0 70 0
+/give @s goldenamethyst:golden_amethyst 16
+/kill @e[type=minecraft:ender_dragon]
+/gamemode survival
+/give @s goldenamethyst:golden_amethyst 16
+/gamemode survival
+/give @s minecraft:lava_bucket 1
+/gamemode creative
+/gamemode survival
+/give @s goldenamethyst:void_crystal 16
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/give @s goldenamethyst:void_crystal 16
