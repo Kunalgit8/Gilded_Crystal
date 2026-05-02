@@ -25,6 +25,7 @@ import net.minecraft.util.math.Vec3d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class GoldenAmethystMod implements ModInitializer {
     public static int recount = 0;
     private static long rewstart = 0;
     private static final java.util.Set<UUID> sneakDropping = new java.util.HashSet<>();
-    public static final Map<UUID, Long> domainCooldowns = new HashMap<>();
+    public static final Map<String, Long> domainCooldowns = new HashMap<>();
     public static final Map<UUID, java.util.List<BlockPos>> activeDomes = new HashMap<>();
     public static final Map<UUID, Integer> domainTicks = new HashMap<>();
 
@@ -65,9 +66,17 @@ public class GoldenAmethystMod implements ModInitializer {
             this.effects = effects; this.time = time;
         }
     }
+    private static String domainKey(UUID uid, ServerWorld world) {
+        return uid.toString() + "_" + world.getRegistryKey().getValue().toString();
+    }
 
     @Override
     public void onInitialize() {
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
+            domainCooldowns.clear();
+            domainTicks.clear();
+            activeDomes.clear();
+        });
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playS2C()
                 .register(StartCutscenePayload.ID, StartCutscenePayload.CODEC);
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S()
@@ -118,8 +127,7 @@ public class GoldenAmethystMod implements ModInitializer {
                         world.spawnParticles(ParticleTypes.DRAGON_BREATH, player.getX(), player.getY() + 1, player.getZ(), 30, 10, 5, 10, 0.05);
                         world.spawnParticles(ParticleTypes.PORTAL, player.getX(), player.getY() + 1, player.getZ(), 30, 10, 5, 10, 0.1);
                     }
-
-                    boolean allDead = mobs.isEmpty();
+                    boolean allDead = !mobs.isEmpty() && mobs.stream().allMatch(e -> !e.isAlive());
                     boolean expired = tick >= 1800;
 
                     if (allDead || expired) {
@@ -130,7 +138,7 @@ public class GoldenAmethystMod implements ModInitializer {
                             activeDomes.remove(uid);
                         }
                         domainTicks.remove(uid);
-                        domainCooldowns.put(uid, System.currentTimeMillis());
+                        domainCooldowns.put(domainKey(uid, world), System.currentTimeMillis());
                         player.sendMessage(Text.literal("§5The domain collapses..."), true);
                     }
                 }
@@ -360,8 +368,9 @@ public class GoldenAmethystMod implements ModInitializer {
                     ServerWorld world = (ServerWorld) player.getWorld();
                     UUID uid = player.getUuid();
 
-                    if (domainCooldowns.containsKey(uid)) {
-                        long elapsed = System.currentTimeMillis() - domainCooldowns.get(uid);
+                    String dkey = domainKey(uid, world);
+                    if (domainCooldowns.containsKey(dkey)) {
+                        long elapsed = System.currentTimeMillis() - domainCooldowns.get(dkey);
                         if (elapsed < 1800000) {
                             long remaining = (1800000 - elapsed) / 1000;
                             player.sendMessage(Text.literal("§cDomain on cooldown! " + remaining + "s remaining"), true);
